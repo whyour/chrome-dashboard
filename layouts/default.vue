@@ -3,15 +3,14 @@
     <el-header class="layout-header" height="61px">
       <div>
         <el-menu
-          default-active="/develop"
+          default-active="/trending"
           class="el-menu-demo"
           mode="horizontal"
           :router="true"
         >
-          <el-menu-item index="/">处理中心</el-menu-item>
-          <el-menu-item index="/develop">选项1</el-menu-item>
-          <el-menu-item index="/explore">选项2</el-menu-item>
-          <el-menu-item index="/2">选项3</el-menu-item>
+          <el-menu-item index="/collections">Collections</el-menu-item>
+          <el-menu-item index="/trending">Trending</el-menu-item>
+          <el-menu-item index="/explore">explore</el-menu-item>
         </el-menu>
       </div>
       <div class="line"></div>
