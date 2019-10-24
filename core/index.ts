@@ -21,8 +21,8 @@ export async function fetchRepositories({
   since = 'daily'
 } = {}): Promise<any> {
   const url = `${GITHUB_URL}/trending/${language}?since=${since}`
-  const data = await fetch(url)
-  const $ = cheerio.load(await data.text())
+  const data = await fetch(url, { mode: 'cors' })
+  const $ = (cheerio as any).load(await data.text())
   return (
     $('.Box article.Box-row')
       .get()
@@ -125,7 +125,7 @@ export async function fetchDevelopers({
   const data = await fetch(
     `${GITHUB_URL}/trending/developers/${language}?since=${since}`
   )
-  const $ = cheerio.load(await data.text())
+  const $ = (cheerio as any).load(await data.text())
   return $('.Box article.Box-row')
     .get()
     .map((dev): any => {
