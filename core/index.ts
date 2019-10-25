@@ -1,8 +1,7 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
 import { omitBy, isNil } from 'lodash'
-
-const GITHUB_URL = 'https://github.com'
+import {GITHUB_URL,REPOSITORIES} from './config'
 
 function omitNil(object): any {
   return omitBy(object, isNil)

@@ -42,7 +42,18 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/proxy'
+  ],
+  proxy: [
+    [
+      '/api',{
+        // target: 'http://localhost:9000',
+        target: 'https://elm-api.caibowen.net',
+        changeOrigin: true,
+        pathRewrite: { '^/api' : '/' }
+      }
+    ]
   ],
   /*
    ** Axios module configuration
