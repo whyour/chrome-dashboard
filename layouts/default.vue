@@ -3,14 +3,15 @@
     <el-header class="layout-header" height="61px">
       <div>
         <el-menu
-          default-active="/trending"
+          router
+          :default-active="$route.path"
           class="el-menu-demo"
           mode="horizontal"
-          :router="true"
         >
           <el-menu-item index="/collections">Collections</el-menu-item>
           <el-menu-item index="/trending">Trending</el-menu-item>
           <el-menu-item index="/explore">explore</el-menu-item>
+          <el-menu-item index="/pull-request">pull-request</el-menu-item>
         </el-menu>
       </div>
       <div class="line"></div>
