@@ -140,10 +140,14 @@
 </template>
 
 <script lang="ts">
-import { fetchPR } from '@/core/index'
 export default {
-  async asyncData({ params }) {
-    const result = await fetchPR()
+  async asyncData({ params, $axios }) {
+    let result
+    try {
+      result = (await $axios.$get('/api')).data
+    } catch (error) {
+      console.log(error.message)
+    }
     return { result }
   }
 }

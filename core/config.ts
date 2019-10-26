@@ -1,2 +1,2 @@
-export const GITHUB_URL = 'https://github.com';
-export const REPOSITORIES = [];
+export const GITHUB_URL = 'https://github.com'
+export const REPOSITORIES = []

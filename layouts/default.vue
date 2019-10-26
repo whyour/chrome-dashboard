@@ -1,6 +1,6 @@
 <template>
   <el-container>
-    <el-header class="layout-header" height="61px">
+    <el-header class="layout-header">
       <div>
         <el-menu
           router
@@ -8,9 +8,15 @@
           class="el-menu-demo"
           mode="horizontal"
         >
-          <el-menu-item index="/collections">Collections</el-menu-item>
-          <el-menu-item index="/trending">Trending</el-menu-item>
-          <el-menu-item index="/explore">explore</el-menu-item>
+          <el-submenu index="/trending">
+            <template slot="title">
+              Trending
+            </template>
+            <el-menu-item index="/trending/repositories">
+              Repositories
+            </el-menu-item>
+            <el-menu-item index="/trending/developers">Developers</el-menu-item>
+          </el-submenu>
           <el-menu-item index="/pull-request">pull-request</el-menu-item>
         </el-menu>
       </div>
@@ -76,6 +82,8 @@ html {
   top: 0;
   background-color: #fff !important;
   border-bottom: solid 1px #e6e6e6;
+  height: 61px !important;
+  z-index: 1000;
 }
 .layout-header > div:first-of-type {
   max-width: 1012px;

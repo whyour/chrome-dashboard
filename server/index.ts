@@ -1,24 +1,21 @@
+import { fetchRepositories, fetchDevelopers } from './api/trending'
 const Koa = require('koa')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
-
+const Router = require('koa-router')
 const app = new Koa()
-
-// Import and Set Nuxt.js options
+const router = new Router()
 const config = require('../nuxt.config')
 
 config.dev = app.env !== 'production'
 
 async function start() {
-  // Instantiate nuxt.js
   const nuxt = new Nuxt(config)
-
   const {
     host = process.env.HOST || '127.0.0.1',
     port = process.env.PORT || 3000
   } = nuxt.options.server
 
-  // Build in development
   if (config.dev) {
     const builder = new Builder(nuxt)
     await builder.build()
@@ -26,10 +23,22 @@ async function start() {
     await nuxt.ready()
   }
 
-  app.use((ctx:any) => {
+  router.get('/api/repositories', async (ctx: any) => {
+    const result = await fetchRepositories()
+    ctx.body = { code: 200, data: result }
+  })
+
+  router.get('/api/developers', async (ctx: any) => {
+    const result = await fetchDevelopers()
+    ctx.body = { code: 200, data: result }
+  })
+
+  app.use(router.routes()).use(router.allowedMethods())
+
+  app.use((ctx: any) => {
     ctx.status = 200
-    ctx.respond = false // Bypass Koa's built-in response handling
-    ctx.req.ctx = ctx // This might be useful later on, e.g. in nuxtServerInit or with nuxt-stash
+    ctx.respond = false
+    ctx.req.ctx = ctx
     nuxt.render(ctx.req, ctx.res)
   })
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="explore-wrapper">
+  <div v-if="result.length > 0" class="explore-wrapper">
     <ul>
       <li v-for="(v, i) in result" :key="i" class="Box-row">
         <div class="float-right">
@@ -51,8 +51,11 @@
         </h1>
         <p class="col-9 text-gray my-1 pr-4">{{ v.description }}</p>
         <div class="f6 text-gray mt-2">
-          <span class="d-inline-block ml-0 mr-3">
-            <span class="repo-language-color"></span>
+          <span v-if="v.language" class="d-inline-block ml-0 mr-3">
+            <span
+              class="repo-language-color"
+              :style="{ 'background-color': v.languageColor }"
+            ></span>
             <span itemprop="programmingLanguage">{{ v.language }}</span>
           </span>
           <a class="muted-link d-inline-block mr-3" :href="v.url">
@@ -140,16 +143,18 @@
 </template>
 
 <script lang="ts">
-import { fetchRepositories } from '@/core/index'
 export default {
-  async asyncData({ params }) {
-    const result = await fetchRepositories()
-    console.log(result)
-    return { result }
+  data() {
+    return {}
   },
-  async fetch({ store, params }) {
-    // const result = await fetchRepositories()
-    // store.commit('setRespositories', result)
+  async asyncData({ params, $axios }) {
+    let result
+    try {
+      result = (await $axios.$get('/api/repositories')).data
+    } catch (error) {
+      console.log(error.message)
+    }
+    return { result }
   }
 }
 </script>
@@ -158,5 +163,13 @@ export default {
 .explore-wrapper {
   max-width: 1012px;
   margin: 0 auto;
+}
+.repo-language-color {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
 }
 </style>

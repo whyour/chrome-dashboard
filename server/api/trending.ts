@@ -1,26 +1,14 @@
 import cheerio from 'cheerio'
 import fetch from 'node-fetch'
-import { omitBy, isNil } from 'lodash'
-import {GITHUB_URL,REPOSITORIES} from './config'
-
-function omitNil(object): any {
-  return omitBy(object, isNil)
-}
-
-function removeDefaultAvatarSize(src?: string): string {
-  /* istanbul ignore if */
-  if (!src) {
-    return src
-  }
-  return src.replace(/\?s=.*$/, '')
-}
+import { GITHUB_URL } from '../../core/config'
+import { removeDefaultAvatarSize, omitNil } from '../../core/util'
 
 export async function fetchRepositories({
   language = '',
   since = 'daily'
 } = {}): Promise<any> {
   const url = `${GITHUB_URL}/trending/${language}?since=${since}`
-  const data = await fetch(url, { mode: 'cors' })
+  const data = await fetch(url)
   const $ = (cheerio as any).load(await data.text())
   return (
     $('.Box article.Box-row')
@@ -90,7 +78,7 @@ export async function fetchRepositories({
           languageColor: langColor,
           stars: parseInt(
             $repo
-              .find("span[aria-label='star']")
+              .find("[aria-label='star']")
               .parent()
               .text()
               .trim()
@@ -99,7 +87,7 @@ export async function fetchRepositories({
           ),
           forks: parseInt(
             $repo
-              .find("span[aria-label='fork']")
+              .find("[aria-label='repo-forked']")
               .parent()
               .text()
               .trim()
@@ -118,56 +106,6 @@ export async function fetchRepositories({
 }
 
 export async function fetchDevelopers({
-  language = '',
-  since = 'daily'
-} = {}): Promise<any> {
-  const data = await fetch(
-    `${GITHUB_URL}/trending/developers/${language}?since=${since}`
-  )
-  const $ = (cheerio as any).load(await data.text())
-  return $('.Box article.Box-row')
-    .get()
-    .map((dev): any => {
-      const $dev = $(dev)
-      const relativeUrl = $dev.find('.h3 a').attr('href')
-      const name = $dev
-        .find('.h3 a')
-        .text()
-        .trim()
-
-      const username = relativeUrl.slice(1)
-
-      const type = $dev
-        .find('img')
-        .parent()
-        .attr('data-hovercard-type')
-
-      const $repo = $dev.find('.mt-2 > article')
-
-      $repo.find('svg').remove()
-
-      return omitNil({
-        username,
-        name,
-        type,
-        url: `${GITHUB_URL}${relativeUrl}`,
-        avatar: removeDefaultAvatarSize($dev.find('img').attr('src')),
-        repo: {
-          name: $repo
-            .find('a')
-            .text()
-            .trim(),
-          description:
-            $repo
-              .find('.f6.mt-1')
-              .text()
-              .trim() || /* istanbul ignore next */ '',
-          url: `${GITHUB_URL}${$repo.find('a').attr('href')}`
-        }
-      })
-    })
-}
-export async function fetchPR({
   language = '',
   since = 'daily'
 } = {}): Promise<any> {

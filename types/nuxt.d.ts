@@ -14,7 +14,7 @@ export interface NuxtContext<V extends Vue> {
   env: object
   params: object
   query: object
-  // ...add remaining interface here
+  $axios: any
 }
 
 declare module 'vue/types/options' {

@@ -1,5 +1,5 @@
 module.exports = {
-  mode: 'universal',
+  mode: 'spa',
   /*
    ** Headers of the page
    */
@@ -19,7 +19,10 @@ module.exports = {
   /*
    ** Customize the progress-bar color
    */
-  loading: { color: '#fff' },
+  loading: {
+    color: 'blue',
+    height: '2px'
+  },
   /*
    ** Global CSS
    */
@@ -27,7 +30,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['@/plugins/element-ui','@/plugins/lazyload'],
+  plugins: ['@/plugins/element-ui', '@/plugins/lazyload'],
   /*
    ** Nuxt.js dev-modules
    */
@@ -42,24 +45,12 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
-    '@nuxtjs/proxy'
-  ],
-  proxy: [
-    [
-      '/api',{
-        // target: 'http://localhost:9000',
-        target: 'https://elm-api.caibowen.net',
-        changeOrigin: true,
-        pathRewrite: { '^/api' : '/' }
-      }
-    ]
+    '@nuxtjs/pwa'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
-  axios: {},
   /*
    ** Build configuration
    */
@@ -70,15 +61,26 @@ module.exports = {
      */
     extend(config: any, ctx: any) {
       if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/,
-          options: {
-            fix: true
+        config.module.rules.push(
+          {
+            enforce: 'pre',
+            test: /\.(js|vue|ts)$/,
+            loader: 'eslint-loader',
+            exclude: /(node_modules)/,
+            options: {
+              fix: true
+            }
+          },
+          {
+            test: /\.ts$/,
+            exclude: [/node_modules/, /vendor/, /\.nuxt/],
+            loader: 'ts-loader',
+            options: {
+              appendTsSuffixTo: [/\.vue$/],
+              transpileOnly: true
+            }
           }
-        })
+        )
       }
     }
   }
