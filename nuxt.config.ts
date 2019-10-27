@@ -1,8 +1,5 @@
 module.exports = {
   mode: 'spa',
-  /*
-   ** Headers of the page
-   */
   head: {
     title: process.env.npm_package_name || '',
     meta: [
@@ -16,49 +13,19 @@ module.exports = {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
-  /*
-   ** Customize the progress-bar color
-   */
   loading: {
     color: 'blue',
     height: '2px'
   },
-  /*
-   ** Global CSS
-   */
+  generate: {
+    dir: 'public'
+  },
   css: ['element-ui/lib/theme-chalk/index.css', '@/assets/scss/index.scss'],
-  /*
-   ** Plugins to load before mounting the App
-   */
   plugins: ['@/plugins/element-ui', '@/plugins/lazyload'],
-  /*
-   ** Nuxt.js dev-modules
-   */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
-    '@nuxt/typescript-build'
-  ],
-  /*
-   ** Nuxt.js modules
-   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/pwa'
-  ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  /*
-   ** Build configuration
-   */
+  buildModules: ['@nuxtjs/eslint-module', '@nuxt/typescript-build'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/pwa'],
   build: {
     transpile: [/^element-ui/],
-    /*
-     ** You can extend webpack config here
-     */
     extend(config: any, ctx: any) {
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push(
