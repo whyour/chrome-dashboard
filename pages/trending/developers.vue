@@ -1,5 +1,5 @@
 <template>
-  <div v-if="result.length > 0" class="explore-wrapper">
+  <div v-if="result && result.length > 0" class="explore-wrapper">
     <ul>
       <li v-for="(v, i) in result" :key="i" class="Box-row d-flex">
         <a
