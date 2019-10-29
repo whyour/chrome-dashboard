@@ -4,7 +4,7 @@ import Vue from "vue";
 import axios from "axios";
 
 let config = {
-  baseURL: 'https://github-api.whyour.now.sh'
+  baseURL: 'https://github-api.whyour.now.sh/api'
 };
 
 const _axios = axios.create(config);
