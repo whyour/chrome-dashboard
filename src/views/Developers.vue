@@ -11,12 +11,12 @@
         </a>
         <div class="mx-3">
           <a class="d-inline-block" :href="v.url">
-            <img
+            <el-image
               class="rounded-1 ghh-user-x tooltipstered"
               :src="v.avatar"
-              width="48"
-              height="48"
-            />
+              style="width: 48px; height: 48px"
+              :lazy="true"
+            ></el-image>
           </a>
         </div>
         <div class="d-sm-flex flex-auto">

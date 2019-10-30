@@ -97,7 +97,6 @@
             {{ v.forks }}
           </a>
           <span
-            v-lazy-container="{ selector: 'img' }"
             class="d-inline-block mr-3"
           >
             Built by
@@ -108,13 +107,13 @@
               data-hovercard-type="user"
               :href="user.href"
             >
-              <img
+              <el-image
                 class="avatar mb-1 ghh-user-x tooltipstered"
-                :data-src="user.avatar"
-                width="20"
-                height="20"
+                :src="user.avatar"
+                style="width: 20px;height: 20px"
                 :alt="user.username"
-              />
+                lazy
+              ></el-image>
             </a>
           </span>
           <span class="d-inline-block float-sm-right">

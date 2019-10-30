@@ -1,33 +1,61 @@
-"use strict";
+'use strict';
 
-import Vue from "vue";
-import axios from "axios";
+import Vue from 'vue';
+import axios from 'axios';
+import { Loading } from 'element-ui';
+import { ElLoadingComponent } from 'element-ui/types/loading';
 
 let config = {
   baseURL: 'https://github-api.whyour.now.sh/api'
 };
 
+let loading: ElLoadingComponent;
+
+function startLoading() {
+  loading = Loading.service({
+    lock: true,
+    spinner: 'my-el-custom-spinner',
+    background: 'rgba(0, 0, 0, 0.7)'
+  });
+}
+function endLoading() {
+  loading.close();
+}
+
+let needLoadingRequestCount = 0;
+export function showFullScreenLoading() {
+  if (needLoadingRequestCount === 0) {
+    startLoading();
+  }
+  needLoadingRequestCount++;
+}
+
+export function tryHideFullScreenLoading() {
+  if (needLoadingRequestCount <= 0) return;
+  needLoadingRequestCount--;
+  if (needLoadingRequestCount === 0) {
+    endLoading();
+  }
+}
+
 const _axios = axios.create(config);
 
 _axios.interceptors.request.use(
   function(config) {
-    // Do something before request is sent
+    showFullScreenLoading();
     return config;
   },
   function(error) {
-    // Do something with request error
     return Promise.reject(error);
   }
 );
 
-// Add a response interceptor
 _axios.interceptors.response.use(
   function(response) {
-    // Do something with response data
+    tryHideFullScreenLoading();
     return response.data;
   },
   function(error) {
-    // Do something with response error
     return Promise.reject(error);
   }
 );
