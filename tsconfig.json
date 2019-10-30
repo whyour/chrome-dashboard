@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "strict": false,
+    "target": "esnext",
+    "module": "esnext",
+    "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
@@ -10,30 +10,31 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "skipLibCheck": true,
-    "lib": [
-      "esnext",
-      "esnext.asynciterable",
-      "dom"
-    ],
-    "allowJs": true,
-    "noEmit": true,
     "baseUrl": ".",
+    "types": [
+      "webpack-env",
+      "jest",
+      "node"
+    ],
     "paths": {
-      "~/*": [
-        "./*"
-      ],
       "@/*": [
-        "./*"
+        "src/*"
       ]
     },
-    "types": [
-      "@types/node",
-      "@nuxt/types",
-      "@nuxt/vue-app",
-      "@nuxtjs/axios"
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]

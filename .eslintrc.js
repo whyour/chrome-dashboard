@@ -1,29 +1,25 @@
 module.exports = {
   root: true,
   env: {
-    browser: true,
     node: true
   },
-  parserOptions: {
-    parser: '@typescript-eslint/parser',
-    ecmaVersion: 2018,
-    sourceType: 'module'
-  },
-  extends: [
-    '@nuxtjs',
-    'prettier',
-    'prettier/vue',
-    'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
-  ],
-  plugins: [
-    'prettier',
-    '@typescript-eslint'
-  ],
+  extends: ["plugin:vue/essential", "@vue/prettier", "@vue/typescript"],
   rules: {
-    'nuxt/no-cjs-in-config': 'off',
-    "semi": [2, 'never'],
-    'no-console': 'off',
-    'no-unused-vars': 'off'
-  }
-}
+    "no-console": process.env.NODE_ENV === "production" ? "error" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "error" : "off"
+  },
+  parserOptions: {
+    parser: "@typescript-eslint/parser"
+  },
+  overrides: [
+    {
+      files: [
+        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/unit/**/*.spec.{j,t}s?(x)"
+      ],
+      env: {
+        jest: true
+      }
+    }
+  ]
+};
