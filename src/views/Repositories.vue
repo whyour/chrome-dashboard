@@ -150,7 +150,7 @@ export default class extends Vue {
   private result: any[] = [];
 
   async created() {
-    this.result = (await (this as any).axios.get("/repositories")).data.data;
+    this.result = (await (this as any).axios.get("/repositories")).data;
   }
 }
 </script>
