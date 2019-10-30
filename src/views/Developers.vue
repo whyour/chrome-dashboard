@@ -95,7 +95,7 @@ export default class Developers extends Vue {
   private result: any[] = [];
 
   async created() {
-    this.result = (await (this as any).axios.get("/developers")).data;
+    this.result = (await (this as any).axios.get("/developers")).data.data;
   }
 }
 </script>
