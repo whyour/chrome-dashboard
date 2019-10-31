@@ -6,7 +6,7 @@ import { Loading } from 'element-ui';
 import { ElLoadingComponent } from 'element-ui/types/loading';
 
 let config = {
-  baseURL: 'https://github-api.whyour.now.sh/api'
+  baseURL: 'https://api.whyour.cn/api'
 };
 
 let loading: ElLoadingComponent;
