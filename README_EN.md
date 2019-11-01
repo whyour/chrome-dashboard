@@ -6,7 +6,7 @@ chrome-dashboard (Chrome Extension) V0.0.1
 
 ![imgur](public/img/home.jpg)
 
-download extension [chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/blob/master/chrome-dashboard.crx)
+download extension [chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/raw/master/chrome-dashboard.crx)
 
 Install (Chrome)
 ----

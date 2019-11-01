@@ -8,7 +8,7 @@ chrome dashboard (Chrome Extension) V0.0.1
 
 ![imgur](public/img/home.jpg)
 
-下载插件 [chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/blob/master/chrome-dashboard.crx)
+下载插件 [chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/raw/master/chrome-dashboard.crx)
 
 Chrome 安装
 ----
