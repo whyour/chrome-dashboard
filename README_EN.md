@@ -4,9 +4,9 @@ chrome-dashboard (Chrome Extension) V0.0.1
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-[![imgur](public/img/home.jpg)]
+![imgur](public/img/home.jpg)
 
-[chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/blob/master/chrome-dashboard.crx)
+download extension [chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/blob/master/chrome-dashboard.crx)
 
 Install (Chrome)
 ----
