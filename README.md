@@ -4,19 +4,17 @@ chrome dashboard (Chrome Extension) V0.0.1
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-[English Version](https://github.com/listen1/listen1_chrome_extension/blob/master/README_EN.md)
+[English Version](https://github.com/whyour/chrome-dashboard/blob/master/README_EN.md)
 
-[![imgur](img/home.jpg)]
+[![imgur](public/img/home.jpg)]
 
-还有精选歌单哦。
+[chrome-dashboard.crx](https://github.com/whyour/chrome-dashboard/blob/master/chrome-dashboard.crx)
 
 Chrome 安装
 ----
-1. 下载项目的 zip 文件，在右上方有个 `Download ZIP`, 解压到本地
+1. chrome 右上角的设置按钮下找到更多工具，打开`扩展程序`
 
-2. chrome 右上角的设置按钮下找到更多工具，打开`扩展程序`
-
-3. 先选中`开发者模式`，拖拽解压文件中的 `chrome-dashboard.crx` 完成安装！
+2. 先选中`开发者模式`，拖拽下载的 `chrome-dashboard.crx` 到 chrome 中， 完成安装！
 
 更新日志
 -------
