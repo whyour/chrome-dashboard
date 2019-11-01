@@ -1,29 +1,29 @@
-# chrome-vue
+chrome dashboard (Chrome Extension) V0.0.1
+==========
+（最后更新于 2019 年 11 月 01 日）
 
-## Project setup
-```
-yarn install
-```
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+[English Version](https://github.com/listen1/listen1_chrome_extension/blob/master/README_EN.md)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+[![imgur](img/home.jpg)]
 
-### Run your unit tests
-```
-yarn test:unit
-```
+还有精选歌单哦。
 
-### Lints and fixes files
-```
-yarn lint
-```
+Chrome 安装
+----
+1. 下载项目的 zip 文件，在右上方有个 `Download ZIP`, 解压到本地
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+2. chrome 右上角的设置按钮下找到更多工具，打开`扩展程序`
+
+3. 先选中`开发者模式`，拖拽解压文件中的 `chrome-dashboard.crx` 完成安装！
+
+更新日志
+-------
+`2019-11-01`
+* 增加 trending 列表
+
+
+License
+--------
+MIT
