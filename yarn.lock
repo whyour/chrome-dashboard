@@ -3031,10 +3031,10 @@ core-js@^2.4.0:
   resolved "https://registry.npm.taobao.org/core-js/download/core-js-2.6.10.tgz?cache=0&sync_timestamp=1572002698954&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fcore-js%2Fdownload%2Fcore-js-2.6.10.tgz#8a5b8391f8cc7013da703411ce5b585706300d7f"
   integrity sha1-iluDkfjMcBPacDQRzltYVwYwDX8=
 
-core-js@^3.3.2, core-js@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.3.tgz#09ea102412a368d5f73d24f082e41ac90c633a49"
-  integrity sha512-BVvHidX8uAmLCYPfLpXTEex7jz1uZJ1mW+shhIsBdA716O8Fg6TOwSgenSyO/bvEtnGdOTpKRZPSh4bSVI1k9w==
+core-js@^3.3.2, core-js@^3.4.4:
+  version "3.4.4"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.4.4.tgz#e3d422f8a51adc4cae2bfa04cef26a5ccc046d29"
+  integrity sha512-vKea1DrcLA80Hrfc7AQgfoGvEaByfR5mH08t+zuWOWY94TFBmabdEL56mUbcijvadG9RxsXR2gUUFrfj4/iTcA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
