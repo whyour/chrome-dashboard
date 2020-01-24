@@ -11,7 +11,7 @@
     "generate:crx": "npm run build:crx && node scripts/generate-crx.js"
   },
   "dependencies": {
-    "@primer/css": "^14.1.0",
+    "@primer/css": "^14.2.0",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.0",
     "vue": "^2.6.11",
