@@ -1647,7 +1647,7 @@
     webpack "^4.0.0"
     yorkie "^2.0.0"
 
-"@vue/cli-plugin-router@^4.4.1", "@vue/cli-plugin-router@^4.4.4":
+"@vue/cli-plugin-router@^4.4.4":
   version "4.4.4"
   resolved "https://registry.yarnpkg.com/@vue/cli-plugin-router/-/cli-plugin-router-4.4.4.tgz#59e11dd55df854618616ad4f013b20c52e4a3a68"
   integrity sha512-jZTupo+zFz1YHH3Q4WC5nJW5wlNEDqX//m+atwUISPahVEG6/EV8HwJnQDT7EQ9re4v78xI27eOtyNw+qSyiSA==
@@ -11068,10 +11068,10 @@ vue-property-decorator@^8.5.0:
   resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-8.5.0.tgz#9af64c5301413f4732640cc0d046879417e64994"
   integrity sha512-0RueJN/shPWf5gM8GLUD6bYiXr+q7bu+S1tgr7XwgBSng10H5DLQjVYfJ5XHAOPFo7fBfY1nxljBQ95qryAiWg==
 
-vue-router@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.2.tgz#0099de402edb2fe92f9711053ab5a2156f239cad"
-  integrity sha512-5sEbcfb7MW8mY8lbUVbF4kgcipGXsagkM/X+pb6n0MhjP+RorWIUTPAPSqgPaiPOxVCXgAItBl8Vwz8vq78faA==
+vue-router@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.3.3.tgz#92603966921f3f0c7e9ff3881cf0b7ab311533df"
+  integrity sha512-Qmzkurgmy9Muy8HItNQcMYAeANHi/NY4ppOJ/qhTWtrg4mFan+VLX+LEv5DqoYOX1XEabN3m3lLPOEEgUpRr0A==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
