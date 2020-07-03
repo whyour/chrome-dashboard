@@ -39,7 +39,7 @@
     "lint-staged": "^10.2.11",
     "node-sass": "^4.14.1",
     "prettier": "^2.0.5",
-    "sass-loader": "^9.0.0",
+    "sass-loader": "^9.0.1",
     "typescript": "~3.9.6",
     "vue-cli-plugin-axios": "^0.0.4",
     "vue-cli-plugin-element": "^1.0.1",
